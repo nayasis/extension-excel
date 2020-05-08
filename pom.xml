@@ -2,9 +2,9 @@
 
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.github.nayasis</groupId>
-  <artifactId>extention-excel</artifactId>
+  <artifactId>extentson-excel</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <name>Excel Extention</name>
+  <name>Excel Extension</name>
   <description>
     Excel utility
   </description>
