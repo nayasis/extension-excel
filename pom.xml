@@ -4,7 +4,7 @@
   <groupId>com.github.nayasis</groupId>
   <artifactId>extentson-excel</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <name>Excel Extension</name>
+  <name>extentson-excel</name>
   <description>
     Excel utility
   </description>
@@ -117,6 +117,9 @@
               <goal>jar</goal>
             </goals>
             <configuration>
+              <additionalOptions>
+                <additionalOption>-Xdoclint:none</additionalOption>
+              </additionalOptions>
               <encoding>${project.build.sourceEncoding}</encoding>
             </configuration>
           </execution>
@@ -140,16 +143,6 @@
   </build>
 
   <profiles>
-    <profile>
-      <id>github</id>
-      <distributionManagement>
-        <repository>
-          <id>github</id>
-          <name>GitHub OWNER Apache Maven Packages</name>
-          <url>https://maven.pkg.github.com/nayasis/basica</url>
-        </repository>
-      </distributionManagement>
-    </profile>
     <profile>
       <id>github-private</id>
       <properties>
