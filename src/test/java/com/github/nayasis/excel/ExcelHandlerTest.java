@@ -17,7 +17,7 @@ public class ExcelHandlerTest {
     @Test
     public void single() {
 
-        String file = Files.getUserHome() + "/excel-test.xlsx";
+        String file = Files.userHome() + "/excel-test.xlsx";
 
         log.debug( "test file path : [{}]", file );
 
@@ -44,7 +44,7 @@ public class ExcelHandlerTest {
     @Test
     public void multi() {
 
-        String file = Files.getUserHome() + "/excel-multi-test.xlsx";
+        String file = Files.userHome() + "/excel-multi-test.xlsx";
 
         log.debug( "test file path : [{}]", file );
 

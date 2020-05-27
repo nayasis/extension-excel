@@ -130,7 +130,7 @@ public class ExcelHandler {
      * @return  self instance
      */
     public ExcelHandler set( File file ) {
-        type( Files.getExtension(file) );
+        type( Files.extension(file) );
         resource = Files.normalizeSeparator( file.getPath() );
         return this;
     }
@@ -142,7 +142,7 @@ public class ExcelHandler {
      * @return  self instance
      */
     public ExcelHandler set( String file ) {
-        type( Files.getExtension(file) );
+        type( Files.extension(file) );
         resource = Files.normalizeSeparator( file );
         return this;
     }
@@ -154,7 +154,7 @@ public class ExcelHandler {
      * @return  self instance
      */
     public ExcelHandler set( Path file ) {
-        type( Files.getExtension(file) );
+        type( Files.extension(file) );
         resource = Files.normalizeSeparator( file );
         return this;
     }
