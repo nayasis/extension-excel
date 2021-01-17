@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.github.nayasis</groupId>
   <artifactId>extension-excel</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>0.0.2-SNAPSHOT</version>
   <name>extension-excel</name>
   <description>
     Excel utility
@@ -16,25 +16,21 @@
       <distribution>repo</distribution>
     </license>
   </licenses>
-  <developers>
-    <developer>
-      <name>Jung Hwasu</name>
-      <email>nayasis@gmail.com</email>
-      <roles>
-        <role>author</role>
-        <role>developer</role>
-      </roles>
-    </developer>
-  </developers>
-  <scm>
-    <url>github.com/nayasis/extension-excel.git</url>
-    <connection>scm:git:ssh://github.com/nayasis/extension-excel.git</connection>
-    <developerConnection>scm:git:ssh://git@github.com/nayasis/extension-excel.git</developerConnection>
-  </scm>
   <issueManagement>
     <system>GitHub Issue Management</system>
     <url>https://github.com/nayasis/extension-excel/issues</url>
   </issueManagement>
+
+  <repositories>
+    <repository>
+      <id>nayasis/maven-repo</id>
+      <url>https://github.com/nayasis/maven-repo</url>
+      <snapshots>
+        <enabled>true</enabled>
+        <updatePolicy>always</updatePolicy>
+      </snapshots>
+    </repository>
+  </repositories>
 
   <properties>
     <java.version>1.8</java.version>
@@ -49,12 +45,12 @@
     <dependency>
       <groupId>com.github.nayasis</groupId>
       <artifactId>basica</artifactId>
-      <version>0.3.5-SNAPSHOT</version>
+      <version>0.3.6-SNAPSHOT</version>
     </dependency>
     <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
-      <version>1.18.10</version>
+      <version>1.18.16</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
@@ -141,14 +137,13 @@
 
   <profiles>
     <profile>
-      <id>github-private</id>
+      <id>github</id>
       <properties>
-        <github.global.server>github-private</github.global.server>
+        <github.global.server>github</github.global.server>
       </properties>
       <distributionManagement>
         <repository>
           <id>internal.repo</id>
-          <name>Temporary Staging Repository</name>
           <url>file://${project.build.directory}/mvn-repo</url>
         </repository>
       </distributionManagement>
@@ -163,12 +158,12 @@
               <includes>
                 <include>**/*</include>
               </includes>
-              <message>${project.version}</message>                                  <!-- git commit message -->
-              <noJekyll>true</noJekyll>                                              <!-- disable webpage processing -->
-              <outputDirectory>${project.build.directory}/mvn-repo</outputDirectory> <!-- matches distribution management repository url above -->
-              <branch>refs/heads/master</branch>                                     <!-- remote branch name -->
-              <repositoryName>UnofficialMavenRepository</repositoryName>             <!-- github repository name -->
-              <repositoryOwner>nayasis</repositoryOwner>                             <!-- github username  -->
+              <message>${project.version}</message>
+              <noJekyll>true</noJekyll>
+              <outputDirectory>${project.build.directory}/mvn-repo</outputDirectory>
+              <branch>refs/heads/master</branch>
+              <repositoryName>maven-repo</repositoryName>
+              <repositoryOwner>nayasis</repositoryOwner>
             </configuration>
             <executions>
               <execution>
@@ -176,33 +171,6 @@
                   <goal>site</goal>
                 </goals>
                 <phase>deploy</phase>
-              </execution>
-            </executions>
-          </plugin>
-        </plugins>
-      </build>
-    </profile>
-    <profile>
-      <id>local-nexus</id>
-      <distributionManagement>
-        <repository>
-          <id>team-store-snapshots</id>
-          <name>Store Maven Repository - Snapshots</name>
-          <url>http://mvn.onestorecorp.com/content/repositories/team-store-snapshots/</url>
-        </repository>
-      </distributionManagement>
-      <build>
-        <plugins>
-          <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-source-plugin</artifactId>
-            <version>3.0.1</version>
-            <executions>
-              <execution>
-                <id>attach-sources</id>
-                <goals>
-                  <goal>jar</goal>
-                </goals>
               </execution>
             </executions>
           </plugin>
