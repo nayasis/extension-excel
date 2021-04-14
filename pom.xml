@@ -23,12 +23,8 @@
 
   <repositories>
     <repository>
-      <id>nayasis/maven-repo</id>
-      <url>https://github.com/nayasis/maven-repo</url>
-      <snapshots>
-        <enabled>true</enabled>
-        <updatePolicy>always</updatePolicy>
-      </snapshots>
+      <id>jitpack.io</id>
+      <url>https://jitpack.io</url>
     </repository>
   </repositories>
 
@@ -45,7 +41,7 @@
     <dependency>
       <groupId>com.github.nayasis</groupId>
       <artifactId>basica</artifactId>
-      <version>0.3.6-SNAPSHOT</version>
+      <version>0.3.6</version>
     </dependency>
     <dependency>
       <groupId>org.projectlombok</groupId>
